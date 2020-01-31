@@ -11,6 +11,9 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     })
 })
 
-$(document).on('click', '#download_all', (e)=> {
+$(document).on('click', '#download_all', (e) => {
     console.log("Downloading all");
+    chrome.runtime.sendMessage({ action: "download", data: images }, res => {
+        console.log("complete")
+    })
 })
